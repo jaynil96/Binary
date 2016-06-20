@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Binary {
+
+	public static void main(String[] args) {
+
+		Frame frame = new Frame("Binary Converter", "Enter the Number you wish to Convert");
+		frame.Text(15);
+		frame.ButtonFrame("Click Me");
+		frame.setVisible(true);
+
+		System.out.println("please specify which number you wish to convert");
+
+		Scanner s = new Scanner(System.in);
+		// read in the command-line argument
+		int n = s.nextInt();
+
+		// set v to the largest power of two that is <= n
+		int v = 1;
+		while (v <= n / 2) {
+			v = v * 2;
+		}
+
+		// check for presence of powers of 2 in n, from largest to smallest
+		while (v > 0) {
+
+			// v is not present in n
+			if (n < v) {
+				System.out.print(0);
+			}
+
+			// v is present in n, so remove v from n
+			else {
+				System.out.print(1);
+				n = n - v;
+			}
+
+			// next smallest power of 2
+			v = v / 2;
+		}
+
+		System.out.println();
+
+	}
+
+}
