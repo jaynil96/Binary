@@ -1,0 +1,51 @@
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Frame extends JFrame implements ActionListener {
+	// introduce a new Jpanel
+	JPanel panel;
+	// introduce a new Jlabel
+	JLabel label;
+	// introduce a button
+	JButton bChange;
+	//introduce new textfeild
+	JTextField text;
+
+	public Frame(String title, String Label) {
+		// have the constructor call itself, and set the Title
+		super(title);
+		// declare size of the box
+		setSize(300, 250);
+		// declare what to do when closed
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		setLayout(new FlowLayout()); // set the layout manager
+		label = new JLabel(Label); // construct a JLabel
+		add(label);
+
+	}
+
+	public void ButtonFrame(String title) {
+		bChange = new JButton(title); // construct a JButton
+		add(bChange); // add the button to the JFrame
+		bChange.addActionListener(this);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	 public void Text(int size)
+	  {  
+	   
+	     text = new JTextField( size );
+	     setLayout( new FlowLayout() );
+	     add( text );
+	     setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );   
+	  }
+	public void actionPerformed(ActionEvent evt) {
+		
